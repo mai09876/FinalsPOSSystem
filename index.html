@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant POS System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .card-img-top {
+            width: 100%;
+            height: 160px;          
+            object-fit: cover;      
+            object-position: center;
+        }
+        .card {
+            display: flex;
+            flex-direction: column;
+            border-radius: 12px; 
+            overflow: hidden;
+        }
+        .btn-custom-primary {
+            background-color: #ff6b0b;
+            border-color: #ff6b0b;
+            color: white;
+            font-weight: 600;
+        }
+        .btn-custom-primary:hover {
+            background-color: #e05a00;
+            border-color: #e05a00;
+            color: white;
+        }
+        .btn-custom-success {
+            background-color: #198754;
+            border-color: #198754;
+            color: white;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body class="bg-light p-4 d-flex flex-column min-vh-100">
+
+    <div class="container-fluid flex-grow-1">
+        <div class="row">
+  
+            <div class="col-md-8 bg-white border rounded p-3">
+                <h2 class="mb-4 fw-bold text-dark">Menu</h2>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3" id="menu-container">
+                    
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnVyZ2VyfGVufDB8fDB8fHww" class="card-img-top" alt="Burger">
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <div>
+                                    <h5 class="card-title fw-semibold">Burger</h5>
+                                    <p class="card-text text-muted fw-bold">60 PHP</p>
+                                </div>
+                                <div>
+                                    <input type="number" id="qty-burger" class="form-control mb-2" min="1" placeholder="Qty">
+                                    <button class="btn btn-custom-primary w-100" onclick="addToOrder('Burger', 60, 'qty-burger')">Add to order</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <img src="https://media.istockphoto.com/id/1472794516/photo/fried-fish-ball-in-boiled-oil-on-a-pan.jpg?s=612x612&w=0&k=20&c=7lOUvafdMWsEi_4tiBsZj0f510ObN8PunCu6lisZl7s=" class="card-img-top" alt="Fishbol">
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <div>
+                                    <h5 class="card-title fw-semibold">Fishbol</h5>
+                                    <p class="card-text text-muted fw-bold">20 PHP</p>
+                                </div>
+                                <div>
+                                    <input type="number" id="qty-fishbol" class="form-control mb-2" min="1" placeholder="Qty">
+                                    <button class="btn btn-custom-primary w-100" onclick="addToOrder('Fishbol', 20, 'qty-fishbol')">Add to order</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <img src="https://t3.ftcdn.net/jpg/03/35/14/66/240_F_335146688_Co3TGgfNoQQ3DOJWP5XLGrZpXpuiFJwI.jpg" class="card-img-top" alt="Kwek-kwek">
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <div>
+                                    <h5 class="card-title fw-semibold">Kwek-kwek</h5>
+                                    <p class="card-text text-muted fw-bold">25 PHP</p>
+                                </div>
+                                <div>
+                                    <input type="number" id="qty-kwek" class="form-control mb-2" min="1" placeholder="Qty">
+                                    <button class="btn btn-custom-primary w-100" onclick="addToOrder('Kwek-kwek', 25, 'qty-kwek')">Add to order</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <img src="https://scontent.fcrk3-4.fna.fbcdn.net/v/t39.30808-6/687678265_1615795176319736_5636569408040198539_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHttyfCli4ABTxpUTstUSdpTT8mirXz14FNPyaKtfPXgZb13-4SsaEiK13TYbXwioHwk-9DtLTMTGUYeemXCqEg&_nc_ohc=zQv2nUhJmWQQ7kNvwEBL9V5&_nc_oc=AdrB7PSS-B5v7gO3d8ps-kgeTNdHjcunmFapeGlgAdJs95zLMsZi6ov45kpr_4EJBbw&_nc_zt=23&_nc_ht=scontent.fcrk3-4.fna&_nc_gid=OvDTrIY8Gu0Uim9sSq_O5w&_nc_ss=7b2a8&oh=00_Af4KmuofEp93xhuru2OeLESBNp_nyxKLB6oNC4bXgS7fcQ&oe=6A143F47" class="card-img-top" alt="Kikiam">
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <div>
+                                    <h5 class="card-title fw-semibold">Kikiam</h5>
+                                    <p class="card-text text-muted fw-bold">20 PHP</p>
+                                </div>
+                                <div>
+                                    <input type="number" id="qty-kikiam" class="form-control mb-2" min="1" placeholder="Qty">
+                                    <button class="btn btn-custom-primary w-100" onclick="addToOrder('Kikiam', 20, 'qty-kikiam')">Add to order</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="bg-white border rounded p-3 h-100 d-flex flex-column justify-content-between shadow-sm">
+                    <div>
+                        <h2 class="border-bottom pb-2 mb-3 fw-bold text-dark">Ordered Items</h2>
+                        <div id="order-list" style="max-height: 400px; overflow-y: auto;">
+                        </div>
+                    </div>
+
+                    <div class="border-top pt-3 mt-4">
+                        <h3 class="mb-3 fw-bold">Total: <span id="total-price">0</span> PHP</h3>
+                        <input type="number" id="cash-tendered" class="form-control mb-2" placeholder="Enter cash amount">
+                        <button class="btn btn-custom-success w-100 py-2" onclick="processPayment()">Pay!</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="text-center text-muted py-3 mt-4 border-top">
+        <small>POS System Designed & Developed by: <strong>Pagayao, Abdullah</strong> | Section: <strong>UCOS 3-2</strong></small>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
